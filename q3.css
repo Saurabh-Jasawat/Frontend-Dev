@@ -1,0 +1,17 @@
+/* q3.css - Team cards */
+/* Container as flex row */
+.team{ display:flex; gap:1rem; padding:2rem; justify-content:center; align-items:flex-start; }
+
+.card{ flex:1; min-width:220px; box-sizing:border-box; padding:1rem; margin:0; border:2px solid #ddd; border-radius:8px; box-shadow:0 6px 14px rgba(0,0,0,0.08); background:#fff; }
+
+.card h3{ margin-top:0; }
+.card .role{ font-weight:600; color:#555; }
+
+/* Highlight lead card */
+.card.lead{ background:#f0f8ff; border:2px solid #0b6; transform:translateY(-4px); }
+
+/* Responsive: single column below 600px */
+@media (max-width:600px){
+  .team{ flex-direction:column; padding:1rem; }
+  .card{ width:100%; }
+}

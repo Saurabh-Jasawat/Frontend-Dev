@@ -1,0 +1,22 @@
+/* q10.css - Demonstrate box model and positioning */
+/* Sticky header */
+.sticky{ position:sticky; top:0; background:#0b3d91; color:#fff; padding:1rem; }
+/* Hero section with background image and centered text */
+.hero{ height:40vh; background-image:url('https://via.placeholder.com/1200x600'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; position:relative; }
+.hero-text{ color:#fff; background: rgba(0,0,0,0.35); padding:1rem 2rem; border-radius:6px; }
+/* About two-column using flexbox */
+.about{ display:flex; gap:1rem; padding:2rem; align-items:center; }
+/* text + image columns */
+.about .col{ flex:1; }
+/* Services three boxes */
+.services{ display:flex; gap:1rem; padding:1rem; }
+.srv{ flex:1; padding:1.5rem; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+/* Contact form simple */
+.contact form{ display:flex; gap:0.5rem; padding:1rem; }
+/* Examples of margin, padding, border, outline */
+.srv{ margin:0; padding:1.5rem; border:1px solid #ddd; outline: 2px solid rgba(11,61,145,0.06); }
+/* Positioning examples */
+.hero-text{ position:relative; }
+.about .img img{ max-width:100%; display:block; }
+/* Responsive */
+@media (max-width:800px){ .about{ flex-direction:column; } .services{ flex-direction:column; } }

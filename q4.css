@@ -1,0 +1,13 @@
+/* q4.css */
+/* Paragraph spacing */
+.post{ max-width:900px; margin:2rem auto; padding:1rem; font-family: Georgia, serif; background:#fff; }
+
+.post p{ margin:1.2rem 0; line-height:1.7; color:#222; }
+/* ::first-letter styling */
+.post p::first-letter{ font-size:3rem; float:left; margin-right:0.5rem; color:#0b3d91; }
+/* ::first-line styling */
+.post p::first-line{ font-weight:700; }
+/* mark custom style */
+.post mark{ background:#ffeb3b; color:#000; padding:0 0.1rem; }
+/* blockquote emphasis */
+.post blockquote{ border-left:4px solid #0b3d91; background:#f4f7fb; padding:1rem; margin:1.5rem 0; }

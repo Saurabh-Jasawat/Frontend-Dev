@@ -1,0 +1,11 @@
+/* q6.css - CSS-only gallery */
+.gallery{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; padding:1rem; }
+.gallery figure{ position:relative; margin:0; overflow:hidden; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+.gallery img{ width:100%; height:auto; display:block; transition: transform .3s ease; }
+/* Caption overlay hidden by default */
+.gallery figcaption{ position:absolute; left:0; right:0; bottom:0; padding:0.8rem; background:rgba(0,0,0,0.6); color:#fff; opacity:0; transform:translateY(10px); transition: opacity .25s ease, transform .25s ease; }
+/* Hover effects */
+.gallery figure:hover img{ transform:scale(1.08); }
+.gallery figure:hover figcaption{ opacity:1; transform:translateY(0); }
+/* Responsive adjustments */
+@media (max-width:600px){ .gallery{ grid-template-columns: 1fr 1fr; } }

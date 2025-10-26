@@ -1,0 +1,11 @@
+/* q9.css - Newspaper style */
+body{ background:#f4f2ee; margin:0; font-family: 'Times New Roman', serif; }
+.mag{ max-width:1100px; margin:2rem auto; padding:2rem; background:#fff; }
+/* Heading spans all columns */
+.span{ column-span: all; text-align:center; font-weight:700; }
+/* Three columns */
+.cols{ column-count:3; column-gap:2rem; text-align:justify; }
+/* Float image aligned left */
+.floatimg{ float:left; margin:0 1rem 1rem 0; width:180px; }
+/* Make sure it is readable on small screens */
+@media (max-width:800px){ .cols{ column-count:1; } }

@@ -1,0 +1,13 @@
+/* q5.css - Pricing plans */
+.plans{ display:flex; gap:1rem; padding:2rem; justify-content:center; align-items:stretch; }
+/* Each plan equal columns */
+.plan{ flex:1; padding:1.5rem; box-sizing:border-box; border:2px solid #ddd; border-radius:8px; text-align:center; transition: transform .25s ease, background .25s ease; min-height:260px; display:flex; flex-direction:column; justify-content:space-between; }
+/* Hover effect */
+.plan:hover{ transform:scale(1.03); background:#f5faff; }
+/* Highlight popular plan */
+.plan.popular{ border:3px solid #0b6; background:linear-gradient(0deg,#fff, #f0fff4); }
+/* Buttons and price */
+.price{ font-size:1.5rem; font-weight:700; }
+.btn{ display:inline-block; padding:0.6rem 1rem; text-decoration:none; background:#0b3d91; color:#fff; border-radius:4px; }
+/* Ensure equal height via align-stretch and min-height on .plan */
+@media (max-width:700px){ .plans{ flex-direction:column; } }

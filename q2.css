@@ -1,0 +1,25 @@
+/* q2.css */
+/* Basic layout */
+body{ margin:0; font-family: Arial, sans-serif; color:#fff; background:#111; }
+header, nav, footer{ padding:1rem; text-align:center; background:#0b6; color:#003; }
+
+main section{ padding:4rem 2rem; border-bottom:4px solid rgba(255,255,255,0.04); }
+
+/* Full-width background with fixed attachment (parallax-like) */
+.bg-fixed{ background-image: url('https://via.placeholder.com/1200x600'); background-size: cover; background-attachment: fixed; background-position:center; }
+
+/* Linear gradient section */
+.gradient-linear{ background: linear-gradient(135deg, rgba(11,100,100,0.9), rgba(40,60,150,0.8)); }
+
+/* Radial gradient section */
+.gradient-radial{ background: radial-gradient(circle at top left, rgba(200,100,50,0.9), rgba(60,30,90,0.8)); background-attachment: fixed; }
+
+/* Normal section with padding and border to define spacing */
+.normal{ background:#222; color:#fff; padding:3rem; border:1px solid rgba(255,255,255,0.05); }
+
+/* Headings sizes and weights */
+h1{ font-size:2.2rem; font-weight:700; color:#060; }
+h2{ font-size:1.6rem; font-weight:600; margin-bottom:1rem; }
+
+/* Ensure contrast */
+main p{ color: #eee; max-width:900px; margin:0 auto; }

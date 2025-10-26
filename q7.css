@@ -1,0 +1,10 @@
+/* q7.css - Centered contact form */
+/* Center vertically and horizontally */
+html,body{ height:100%; margin:0; }
+.center{ min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f1f5f9; }
+.contact-form{ background:#fff; padding:2rem; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.08); width:320px; display:flex; flex-direction:column; gap:0.8rem; }
+.contact-form label{ display:flex; flex-direction:column; font-size:0.9rem; }
+.contact-form input, .contact-form textarea{ padding:0.6rem; border:1px solid #ccc; border-radius:6px; outline:none; }
+/* Change border on focus */
+.contact-form input:focus, .contact-form textarea:focus{ border-color:#0b6; box-shadow:0 0 0 3px rgba(11,102,102,0.08); }
+.contact-form button{ padding:0.6rem; background:#0b3d91; color:#fff; border:none; border-radius:6px; cursor:pointer; }
