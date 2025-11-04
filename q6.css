@@ -1,0 +1,8 @@
+/* Q6: Blog layout using grid-template-areas */
+.layout{display:grid;grid-template-columns:240px 1fr;grid-template-areas:'header header' 'sidebar content' 'footer footer';gap:1rem;min-height:100vh;padding:1rem;}
+.header{grid-area:header;background:#0b3d91;color:#fff;padding:1rem;}
+.sidebar{grid-area:sidebar;background:#fff;padding:1rem;border-radius:8px;}
+.content{grid-area:content;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem;}
+.post{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.06);}
+.footer{grid-area:footer;text-align:center;padding:1rem;background:#062f6b;color:#fff;border-radius:6px;}
+@media (max-width:800px){ .layout{grid-template-columns:1fr;grid-template-areas:'header' 'content' 'sidebar' 'footer';} .content{grid-template-columns:1fr}}
