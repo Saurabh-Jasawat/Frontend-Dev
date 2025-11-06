@@ -1,0 +1,21 @@
+/* q4.css — Demonstrating selector types and combinators */
+/* Element selector */
+p{color:#111;}
+
+/* Class selector */
+.highlight{background:rgba(99,102,241,0.06);padding:.25rem;border-radius:4px;}
+
+/* ID selector */
+#unique{font-weight:700;color:#0b2447;}
+
+/* Attribute selector: select links with target="_blank" */
+a[target="_blank"]{text-decoration:underline dotted;color:#0f766e;}
+
+/* Child combinator (>) - apply margin to direct children paragraphs of .parent */
+.parent > p{margin:0 0 .45rem;}
+
+/* Adjacent sibling (+) - paragraph immediately after h4 */
+.sibling-demo h4 + p{font-style:italic;}
+
+/* General sibling (~) - all p after h4 */
+.sibling-demo h4 ~ p{color:#6b7280;}

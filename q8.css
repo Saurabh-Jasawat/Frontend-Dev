@@ -1,0 +1,9 @@
+/* q8.css — Visual comparison of default vs border-box */
+
+*{box-sizing:border-box;}
+body{font-family:system-ui,Arial,Helvetica,sans-serif;background:#fff;margin:0;padding:2rem;display:flex;flex-direction:column;align-items:center;}
+.compare{display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;}
+.box{width:220px;padding:20px;border:10px solid rgba(0,0,0,0.06);border-radius:8px;text-align:center;background:#f8fafc;}
+.box.border-box{box-sizing:border-box;background:#fff;}
+.desc{max-width:640px;margin-top:1rem;color:#374151;}
+@media(max-width:700px){.compare{flex-direction:column;align-items:center;}}
