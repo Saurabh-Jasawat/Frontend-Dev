@@ -1,0 +1,8 @@
+/* Q7: Three-dot loading animation centered with Flexbox */
+body{display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f4f7fb;}
+.loader{display:flex;gap:0.6rem;align-items:flex-end;}
+.dot{width:18px;height:18px;border-radius:50%;background:#0b3d91;transform:translateY(0);animation:move 0.8s ease-in-out infinite;}
+.dot.d1{animation-delay:0s;}
+.dot.d2{animation-delay:0.12s;}
+.dot.d3{animation-delay:0.24s;}
+@keyframes move{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
