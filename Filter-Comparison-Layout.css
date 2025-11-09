@@ -1,0 +1,12 @@
+/* Filter-Comparison-Layout.css */
+body{margin:0;font-family:system-ui,Arial;padding:1rem;background:#fafafa}
+.compare{ display:flex; gap:1rem; align-items:flex-start; }
+figure{ margin:0; flex:1; background:#fff; border-radius:8px; overflow:hidden; text-align:center; }
+img{ width:100%; height:320px; object-fit:cover; transition:filter 400ms ease; display:block; }
+.after img{ filter: contrast(70%); }
+.after:hover img{ filter:none; }
+figcaption{ padding:0.6rem; font-weight:600; }
+@media (max-width:699px){
+  .compare{ flex-direction:column; }
+  img{ height:420px; }
+}

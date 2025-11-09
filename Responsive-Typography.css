@@ -1,0 +1,8 @@
+/* Responsive-Typography.css */
+body{font-family:system-ui,Arial;margin:0;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.typography{ max-width:900px; text-align:center; padding:2rem; }
+h1{ font-size: clamp(1.5rem, 4vw, 3rem); margin:0 0 1rem; }
+p{ font-size: clamp(1rem, 2vw, 1.5rem); margin:0 auto; line-height:1.6; max-width:70ch; }
+@media (max-width:699px){
+  p{ line-height:1.45; padding:0 0.5rem; }
+}

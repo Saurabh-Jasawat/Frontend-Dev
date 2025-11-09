@@ -1,0 +1,9 @@
+/* Responsive-Design-Principles-Summary.css */
+body{font-family:system-ui,Arial;margin:0;padding:1rem}
+.principles{ display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+.card{ padding:1rem; border-radius:8px; background:#f7fafc; text-align:center; transition: background 220ms ease, color 220ms ease; }
+.card:hover{ background: linear-gradient(90deg,#7dd3fc,#60a5fa); color:#012; }
+pre{ background:transparent; text-align:left; margin:0; padding-top:0.5rem; font-family:monospace; }
+@media (max-width:599px){
+  .principles{ grid-template-columns: 1fr; }
+}

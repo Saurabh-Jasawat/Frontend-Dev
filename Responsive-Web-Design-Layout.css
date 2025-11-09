@@ -1,0 +1,22 @@
+/* Responsive-Web-Design-Layout.css */
+*{box-sizing:border-box}
+body{font-family: system-ui, Arial; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+.site-header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem; background:linear-gradient(90deg,#f6f7fb,#eef2ff);
+}
+.logo{font-weight:700; font-size:1.25rem;}
+.nav a{margin-left:1rem; text-decoration:none; color:#222;}
+main{flex:1; padding:1.25rem;}
+.features{ display:flex; gap:1rem; justify-content:space-between; }
+.feature{
+  flex:1; padding:1rem; border-radius:8px; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.06);
+  transition:transform 250ms ease;
+}
+.feature:hover{ transform: scale(1.03); }
+.site-footer{ text-align:center; padding:1rem; background:#111; color:#fff; }
+/* Responsive: stack features vertically below 750px */
+@media (max-width:749px){
+  .features{ flex-direction:column; }
+  .nav{ display:none; } /* simplified nav on small screens for demo */
+}

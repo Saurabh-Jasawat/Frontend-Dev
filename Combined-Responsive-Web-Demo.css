@@ -1,0 +1,13 @@
+/* Combined-Responsive-Web-Demo.css */
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,Arial;display:flex;flex-direction:column;min-height:100vh}
+.top{ display:flex; justify-content:space-between; align-items:center; padding:1rem; background:#eef2ff; }
+.grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem; padding:1rem; flex:1; align-items:start; animation:fadeIn 500ms ease both; }
+.gallery-preview .thumbs img{ width:100%; height:120px; object-fit:cover; margin-bottom:0.5rem; display:block; }
+.explain, .cheat-preview{ background:#fff; padding:1rem; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+footer.foot{ text-align:center; padding:1rem; background:#111;color:#fff; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+@media (max-width:699px){
+  .grid{ grid-template-columns: 1fr; }
+  .top .nav{ display:none; }
+}

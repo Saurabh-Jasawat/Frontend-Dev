@@ -1,0 +1,49 @@
+/* Responsive-Image-Filter-Gallery.css */
+:root{
+  --gap: 1rem;
+  --pad: 1rem;
+}
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0; padding:var(--pad); line-height:1.4;
+  display:flex; flex-direction:column; min-height:100vh;
+}
+header, footer{text-align:center; padding:0.5rem 0}
+.gallery{
+  display:grid;
+  gap:var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items:start;
+}
+figure{
+  margin:0;
+  background:#fff;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+}
+img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+  transition:filter 350ms ease, transform 350ms ease;
+}
+/* Apply different filters per figure using nth-child */
+.gallery figure:nth-child(1) img{ filter: blur(3px); }
+.gallery figure:nth-child(2) img{ filter: grayscale(100%); }
+.gallery figure:nth-child(3) img{ filter: sepia(80%); }
+.gallery figure:nth-child(4) img{ filter: brightness(0.6); }
+.gallery figure:nth-child(5) img{ filter: contrast(140%); }
+.gallery figure:nth-child(6) img{ filter: hue-rotate(90deg); }
+/* Hover removes filter */
+figure:hover img{ filter: none; transform: scale(1.02); }
+figcaption{ padding:0.75rem; text-align:center; font-weight:600; }
+/* Stack in single column on narrow screens (<600px) */
+@media (max-width:599px){
+  .gallery{ grid-template-columns: 1fr; }
+  img{ height:300px; }
+}

@@ -1,0 +1,10 @@
+/* Responsive-CSS-Cheat-Sheet.css */
+body{font-family:system-ui,Arial;margin:0;padding:1rem;background:#fff}
+.cheats{ display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.item{ padding:1rem; border-radius:8px; background:#f8fafc; transition: transform 220ms ease, box-shadow 220ms ease; }
+.item:hover{ transform: translateY(-6px); box-shadow:0 8px 18px rgba(0,0,0,0.06); }
+.item h3{ margin:0 0 .5rem; }
+@media (max-width:699px){
+  .cheats{ grid-template-columns: 1fr; }
+  .item{ display:flex; flex-direction:column; }
+}
