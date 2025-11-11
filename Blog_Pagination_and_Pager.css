@@ -1,0 +1,10 @@
+/* Blog Pagination and Pager Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+main {
+    min-height: 60vh;
+}
+footer {
+    font-size: 0.9rem;
+}
