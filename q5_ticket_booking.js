@@ -1,0 +1,1 @@
+console.log('Ticket booking validation via DOM');

@@ -1,0 +1,1 @@
+console.log('Dynamic form builder works in DOM');

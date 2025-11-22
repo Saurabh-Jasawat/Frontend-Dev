@@ -1,0 +1,1 @@
+console.log('Login regex validation via DOM');
