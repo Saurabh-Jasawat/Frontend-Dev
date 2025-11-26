@@ -1,0 +1,95 @@
+{
+  "timetable": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "subject": "Data Structures",
+      "faculty": "Dr. Smith",
+      "time": "9:00 AM - 10:00 AM"
+    },
+    {
+      "id": 2,
+      "day": "Monday",
+      "subject": "Web Development",
+      "faculty": "Prof. Johnson",
+      "time": "10:15 AM - 11:15 AM"
+    },
+    {
+      "id": 3,
+      "day": "Monday",
+      "subject": "Database Management",
+      "faculty": "Dr. Williams",
+      "time": "11:30 AM - 12:30 PM"
+    },
+    {
+      "id": 4,
+      "day": "Tuesday",
+      "subject": "Algorithms",
+      "faculty": "Prof. Brown",
+      "time": "9:00 AM - 10:00 AM"
+    },
+    {
+      "id": 5,
+      "day": "Tuesday",
+      "subject": "Operating Systems",
+      "faculty": "Dr. Davis",
+      "time": "10:15 AM - 11:15 AM"
+    },
+    {
+      "id": 6,
+      "day": "Tuesday",
+      "subject": "Computer Networks",
+      "faculty": "Prof. Miller",
+      "time": "11:30 AM - 12:30 PM"
+    },
+    {
+      "id": 7,
+      "day": "Wednesday",
+      "subject": "Software Engineering",
+      "faculty": "Dr. Wilson",
+      "time": "9:00 AM - 10:00 AM"
+    },
+    {
+      "id": 8,
+      "day": "Wednesday",
+      "subject": "Artificial Intelligence",
+      "faculty": "Prof. Moore",
+      "time": "10:15 AM - 11:15 AM"
+    },
+    {
+      "id": 9,
+      "day": "Thursday",
+      "subject": "Machine Learning",
+      "faculty": "Dr. Taylor",
+      "time": "9:00 AM - 10:00 AM"
+    },
+    {
+      "id": 10,
+      "day": "Thursday",
+      "subject": "Cloud Computing",
+      "faculty": "Prof. Anderson",
+      "time": "10:15 AM - 11:15 AM"
+    },
+    {
+      "id": 11,
+      "day": "Thursday",
+      "subject": "Mobile App Development",
+      "faculty": "Dr. Thomas",
+      "time": "11:30 AM - 12:30 PM"
+    },
+    {
+      "id": 12,
+      "day": "Friday",
+      "subject": "Cybersecurity",
+      "faculty": "Prof. Jackson",
+      "time": "9:00 AM - 10:00 AM"
+    },
+    {
+      "id": 13,
+      "day": "Friday",
+      "subject": "Project Work",
+      "faculty": "Dr. White",
+      "time": "10:15 AM - 12:30 PM"
+    }
+  ]
+}

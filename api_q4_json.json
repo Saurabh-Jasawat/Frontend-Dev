@@ -1,0 +1,31 @@
+{
+  "users": [
+    { "id": 1, "name": "John Doe", "email": "john@example.com" },
+    { "id": 2, "name": "Jane Smith", "email": "jane@example.com" },
+    { "id": 3, "name": "Bob Johnson", "email": "bob@example.com" },
+    { "id": 4, "name": "Alice Williams", "email": "alice@example.com" },
+    { "id": 5, "name": "Charlie Brown", "email": "charlie@example.com" }
+  ],
+  "orders": [
+    { "id": 1, "userId": 1, "product": "Laptop", "amount": 999 },
+    { "id": 2, "userId": 2, "product": "Phone", "amount": 699 },
+    { "id": 3, "userId": 1, "product": "Tablet", "amount": 449 },
+    { "id": 4, "userId": 3, "product": "Headphones", "amount": 199 },
+    { "id": 5, "userId": 4, "product": "Keyboard", "amount": 79 },
+    { "id": 6, "userId": 2, "product": "Mouse", "amount": 49 },
+    { "id": 7, "userId": 5, "product": "Monitor", "amount": 299 },
+    { "id": 8, "userId": 3, "product": "Webcam", "amount": 89 }
+  ],
+  "products": [
+    { "id": 1, "name": "Laptop", "price": 999, "stock": 15 },
+    { "id": 2, "name": "Smartphone", "price": 699, "stock": 25 },
+    { "id": 3, "name": "Tablet", "price": 449, "stock": 18 },
+    { "id": 4, "name": "Headphones", "price": 199, "stock": 40 },
+    { "id": 5, "name": "Keyboard", "price": 79, "stock": 30 },
+    { "id": 6, "name": "Mouse", "price": 49, "stock": 50 },
+    { "id": 7, "name": "Monitor", "price": 299, "stock": 20 },
+    { "id": 8, "name": "Webcam", "price": 89, "stock": 35 },
+    { "id": 9, "name": "Microphone", "price": 129, "stock": 22 },
+    { "id": 10, "name": "Desk Lamp", "price": 39, "stock": 45 }
+  ]
+}

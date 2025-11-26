@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "role": "Software Engineer",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "role": "Product Manager",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Mike Williams",
+      "role": "UI/UX Designer",
+      "status": "inactive"
+    },
+    {
+      "id": 4,
+      "name": "Emily Brown",
+      "role": "Data Analyst",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "name": "David Lee",
+      "role": "DevOps Engineer",
+      "status": "inactive"
+    },
+    {
+      "id": 6,
+      "name": "Jessica Davis",
+      "role": "Marketing Manager",
+      "status": "active"
+    }
+  ]
+}

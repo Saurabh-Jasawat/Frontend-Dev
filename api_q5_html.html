@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Timetable Viewer</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 30px;
+    }
+    .day-selector {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      margin-right: 15px;
+      color: #555;
+      font-size: 16px;
+    }
+    select {
+      padding: 12px 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      min-width: 200px;
+      background: white;
+    }
+    select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #667eea;
+      font-size: 18px;
+    }
+    .timetable {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .class {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    .class:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .class-time {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .class-subject {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .class-faculty {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+    .no-classes {
+      text-align: center;
+      padding: 60px 40px;
+      background: #f5f5f5;
+      border-radius: 15px;
+      color: #999;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📅 College Timetable Viewer</h1>
+    
+    <div class="day-selector">
+      <label for="daySelect">Select Day:</label>
+      <select id="daySelect">
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+      </select>
+    </div>
+
+    <div class="loading" id="loading">Loading timetable...</div>
+    <div class="timetable" id="timetable"></div>
+  </div>
+
+  <script src="timetable.js"></script>
+</body>
+</html>
