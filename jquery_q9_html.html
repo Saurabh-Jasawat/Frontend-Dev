@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-jQuery Widgets</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .widgets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    .widget {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .widget h3 {
+      color: #667eea;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .carousel {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #f5f5f5;
+    }
+    .carousel-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .carousel-item.active {
+      display: flex;
+    }
+    .carousel-item:nth-child(1) {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .carousel-item:nth-child(2) {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    .carousel-item:nth-child(3) {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .carousel-btn {
+      padding: 8px 20px;
+      margin: 0 5px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .carousel-btn:hover {
+      background: #764ba2;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+    .modal-close:hover {
+      color: #333;
+    }
+    .btn-notify {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn-notify:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+    .item-list {
+      margin-top: 15px;
+    }
+    .item {
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .item:hover {
+      background: #667eea;
+      color: white;
+      transform: translateX(5px);
+    }
+    .item.active {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      color: white;
+      font-weight: bold;
+    }
+    .tooltip-container {
+      margin-top: 20px;
+    }
+    .tooltip-trigger {
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      margin-bottom: 5px;
+    }
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Multi-jQuery Widgets Dashboard</h1>
+    
+    <div class="widgets">
+      <div class="widget">
+        <h3>Carousel Slider</h3>
+        <div class="carousel" id="carousel1">
+          <div class="carousel-item active">Slide 1</div>
+          <div class="carousel-item">Slide 2</div>
+          <div class="carousel-item">Slide 3</div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn">Previous</button>
+          <button class="carousel-btn" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3>Modal Notifications</h3>
+        <p>Click the button to open a notification modal.</p>
+        <button class="btn-notify" id="openModal">Show Notification</button>
+      </div>
+
+      <div class="widget">
+        <h3>Active Widget Selector</h3>
+        <div class="item-list">
+          <div class="item">Widget Option 1</div>
+          <div class="item">Widget Option 2</div>
+          <div class="item">Widget Option 3</div>
+          <div class="item">Widget Option 4</div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3>Hover Tooltips</h3>
+        <div class="tooltip-container">
+          <div class="tooltip-trigger">
+            Hover over me
+            <div class="tooltip">This is a helpful tooltip!</div>
+          </div>
+          <div class="tooltip-trigger">
+            Hover here too
+            <div class="tooltip">Another useful tooltip</div>
+          </div>
+          <div class="tooltip-trigger">
+            And over here
+            <div class="tooltip">More information here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="notificationModal">
+    <div class="modal-content">
+      <span class="modal-close" id="closeModal">&times;</span>
+      <h3>🔔 Notification</h3>
+      <p>This is a notification modal powered by jQuery!</p>
+      <button class="btn-notify" id="closeModalBtn">Close</button>
+    </div>
+  </div>
+
+  <script src="widgets.js"></script>
+</body>
+</html>

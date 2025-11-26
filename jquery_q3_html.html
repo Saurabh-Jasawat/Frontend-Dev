@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive FAQ</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .question {
+      background: #f5f5f5;
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      transition: all 0.3s;
+      user-select: none;
+      position: relative;
+    }
+    .question:hover {
+      background: #667eea;
+      color: white;
+    }
+    .question::after {
+      content: "▼";
+      position: absolute;
+      right: 20px;
+      transition: transform 0.3s;
+    }
+    .question.active::after {
+      transform: rotate(180deg);
+    }
+    .answer {
+      padding: 20px;
+      background: white;
+      color: #555;
+      line-height: 1.6;
+      display: none;
+      border-top: 2px solid #e0e0e0;
+    }
+    .answer.show {
+      display: block;
+    }
+    .faq-item.highlight {
+      border-color: #667eea;
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    .answer input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .answer input:focus {
+      outline: none;
+      border-color: #667eea;
+      background: #f0f7ff;
+    }
+    .answer input:not(:focus) {
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>❓ Frequently Asked Questions</h1>
+    
+    <div class="faq-item">
+      <div class="question">What is jQuery?</div>
+      <div class="answer">
+        jQuery is a fast, small, and feature-rich JavaScript library. It makes HTML document manipulation, event handling, and animation much simpler.
+        <input type="text" placeholder="Type your thoughts here..." class="answer-input">
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">How do I include jQuery in my project?</div>
+      <div class="answer">
+        You can include jQuery using a CDN by adding this script tag: &lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+        <input type="text" placeholder="Type your thoughts here..." class="answer-input">
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">What are jQuery selectors?</div>
+      <div class="answer">
+        jQuery selectors allow you to select and manipulate HTML elements based on CSS selectors. Examples: $('#id'), $('.class'), $('element').
+        <input type="text" placeholder="Type your thoughts here..." class="answer-input">
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">What is $(document).ready()?</div>
+      <div class="answer">
+        $(document).ready() executes code when the DOM is fully loaded but before images load. It ensures elements exist before manipulation.
+        <input type="text" placeholder="Type your thoughts here..." class="answer-input">
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">How do I add event handlers in jQuery?</div>
+      <div class="answer">
+        Use methods like .click(), .hover(), .on() to attach event handlers. Example: $('#button').click(function() { alert('Clicked!'); });
+        <input type="text" placeholder="Type your thoughts here..." class="answer-input">
+      </div>
+    </div>
+  </div>
+
+  <script src="faq.js"></script>
+</body>
+</html>

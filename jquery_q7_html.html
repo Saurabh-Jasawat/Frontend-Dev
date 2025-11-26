@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Courses</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 30px;
+    }
+    .search-box {
+      background: #f5f5f5;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    .search-info {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+    }
+    .btn-clear {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-clear:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .course {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    .course:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .course.hidden {
+      display: none;
+    }
+    .course-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .course-instructor {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    .course-duration {
+      font-size: 13px;
+      color: #999;
+    }
+    .highlight {
+      background: yellow;
+      font-weight: bold;
+    }
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 18px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Search Courses</h1>
+    
+    <div class="search-box">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search for courses...">
+      <div class="search-info">
+        Showing <span id="matchCount">12</span> courses
+      </div>
+      <button class="btn-clear" id="clearBtn">Clear Search</button>
+    </div>
+
+    <div class="courses" id="coursesList">
+      <div class="course" data-title="Web Development Bootcamp">
+        <div class="course-title">Web Development Bootcamp</div>
+        <div class="course-instructor">Instructor: John Doe</div>
+        <div class="course-duration">Duration: 12 weeks</div>
+      </div>
+
+      <div class="course" data-title="Python for Beginners">
+        <div class="course-title">Python for Beginners</div>
+        <div class="course-instructor">Instructor: Jane Smith</div>
+        <div class="course-duration">Duration: 8 weeks</div>
+      </div>
+
+      <div class="course" data-title="Data Science Fundamentals">
+        <div class="course-title">Data Science Fundamentals</div>
+        <div class="course-instructor">Instructor: Mike Johnson</div>
+        <div class="course-duration">Duration: 10 weeks</div>
+      </div>
+
+      <div class="course" data-title="JavaScript Advanced Concepts">
+        <div class="course-title">JavaScript Advanced Concepts</div>
+        <div class="course-instructor">Instructor: Sarah Williams</div>
+        <div class="course-duration">Duration: 6 weeks</div>
+      </div>
+
+      <div class="course" data-title="Mobile App Development">
+        <div class="course-title">Mobile App Development</div>
+        <div class="course-instructor">Instructor: Tom Brown</div>
+        <div class="course-duration">Duration: 14 weeks</div>
+      </div>
+
+      <div class="course" data-title="Machine Learning Basics">
+        <div class="course-title">Machine Learning Basics</div>
+        <div class="course-instructor">Instructor: Emily Davis</div>
+        <div class="course-duration">Duration: 10 weeks</div>
+      </div>
+
+      <div class="course" data-title="UI/UX Design Principles">
+        <div class="course-title">UI/UX Design Principles</div>
+        <div class="course-instructor">Instructor: David Wilson</div>
+        <div class="course-duration">Duration: 8 weeks</div>
+      </div>
+
+      <div class="course" data-title="Database Management">
+        <div class="course-title">Database Management</div>
+        <div class="course-instructor">Instructor: Lisa Anderson</div>
+        <div class="course-duration">Duration: 7 weeks</div>
+      </div>
+
+      <div class="course" data-title="Cloud Computing AWS">
+        <div class="course-title">Cloud Computing AWS</div>
+        <div class="course-instructor">Instructor: Robert Taylor</div>
+        <div class="course-duration">Duration: 9 weeks</div>
+      </div>
+
+      <div class="course" data-title="Cybersecurity Essentials">
+        <div class="course-title">Cybersecurity Essentials</div>
+        <div class="course-instructor">Instructor: Karen Martinez</div>
+        <div class="course-duration">Duration: 11 weeks</div>
+      </div>
+
+      <div class="course" data-title="React Framework Masterclass">
+        <div class="course-title">React Framework Masterclass</div>
+        <div class="course-instructor">Instructor: Chris Lee</div>
+        <div class="course-duration">Duration: 8 weeks</div>
+      </div>
+
+      <div class="course" data-title="DevOps Engineering">
+        <div class="course-title">DevOps Engineering</div>
+        <div class="course-instructor">Instructor: Amanda Clark</div>
+        <div class="course-duration">Duration: 12 weeks</div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      No courses found matching your search.
+    </div>
+  </div>
+
+  <script src="courses.js"></script>
+</body>
+</html>

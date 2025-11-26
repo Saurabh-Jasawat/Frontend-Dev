@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Blog Posts</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .admin-panel {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    .btn-container {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex: 1;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: white;
+    }
+    .btn-add {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .btn-prepend {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+    .btn-remove {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .posts-container {
+      margin-top: 30px;
+    }
+    .post {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .post:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .post-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .post-content {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .post-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .featured {
+      border: 3px solid #4caf50;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    }
+    .featured::before {
+      content: "⭐ FEATURED";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #4caf50;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .no-posts {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Blog Admin Panel</h1>
+    
+    <div class="admin-panel">
+      <h3>Manage Posts</h3>
+      <div class="form-group">
+        <label for="postTitle">Post Title</label>
+        <input type="text" id="postTitle" placeholder="Enter post title">
+      </div>
+      <div class="form-group">
+        <label for="postContent">Post Content</label>
+        <textarea id="postContent" placeholder="Enter post content"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="postTags">Tags (comma-separated)</label>
+        <input type="text" id="postTags" placeholder="e.g., Technology, Programming, Web">
+      </div>
+      <div class="btn-container">
+        <button class="btn btn-add" id="addPostBtn">Add New Post</button>
+        <button class="btn btn-prepend" id="prependPostBtn">Prepend Featured Post</button>
+        <button class="btn btn-remove" id="removeLastBtn">Remove Last Post</button>
+      </div>
+    </div>
+
+    <div class="posts-container" id="postsContainer">
+      <div class="post">
+        <div class="post-title">Welcome to Our Blog</div>
+        <div class="post-content">This is our first blog post. We're excited to share our journey with you!</div>
+        <div class="post-tags">
+          <span class="tag">Announcement</span>
+          <span class="tag">Welcome</span>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-title">Getting Started with jQuery</div>
+        <div class="post-content">Learn the basics of jQuery and how to manipulate the DOM efficiently.</div>
+        <div class="post-tags">
+          <span class="tag">jQuery</span>
+          <span class="tag">Tutorial</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-title">Top 10 Web Development Trends</div>
+        <div class="post-content">Discover the latest trends shaping the future of web development in 2024.</div>
+        <div class="post-tags">
+          <span class="tag">Web Development</span>
+          <span class="tag">Trends</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="blog.js"></script>
+</body>
+</html>
